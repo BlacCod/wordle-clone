@@ -7,11 +7,13 @@
   color: white;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   background-color: #121213;
   font-family: "Poppins", Roboto, sans-serif;
-  font-size: 20px;
-  color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -21,22 +23,39 @@ body {
 
 .guess-area-wrapper {
   display: grid;
-  grid-template-columns: repeat(5, 3em);
-  grid-template-rows: auto;
-  gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 5px;
 }
 .guess-area-wrapper .tile {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 3em;
-  min-width: 3em;
+  width: 60px;
+  height: 60px;
   border: 1px solid hsl(0deg, 0%, 44%);
-  border-radius: 50%;
+  font-size: 2rem;
+  line-height: 2rem;
+  text-transform: uppercase;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+.guess-area-wrapper .wrong {
+  background-color: #797c7f;
+  border: none;
+}
+.guess-area-wrapper .wrong-location {
+  background-color: #b59f3b;
+  border: none;
+}
+.guess-area-wrapper .correct {
+  background-color: #538d4e;
+  border: none;
+}
+.guess-area-wrapper .unsubmitted {
+  border: 1px solid white;
 }
 
 .keyboard-area {
@@ -44,7 +63,7 @@ body {
   grid-template-columns: repeat(20, 1fr);
   grid-template-rows: repeat(3, 50px);
   gap: 5px;
-  width: 50%;
+  width: 500px;
 }
 .keyboard-area .btn {
   grid-column: span 2;
@@ -61,4 +80,10 @@ body {
 }
 .keyboard-area .big {
   grid-column: span 3;
+}
+
+@media screen and (max-width: 600px) {
+  .keyboard-area {
+    width: 80%;
+  }
 }/*# sourceMappingURL=styles.css.map */

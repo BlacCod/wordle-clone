@@ -13,25 +13,27 @@ $button-background: hsl(210, 1%, 51%);
 $wrong-letter: #797c7f;
 $wrong-location-letter: #b59f3b;
 $correct-letter: #538d4e;
+html {
+    font-size: 16px;
+}
 
 body {
     background-color: $background;
     font-family: "Poppins", Roboto, sans-serif;
-    font-size: 20px;
-    color: white;
     min-height: 100vh;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    // margin: 0 auto;
 }
 
 .guess-area-wrapper {
     display: grid;
-    grid-template-columns: repeat(5, 3em);
-    grid-template-rows: auto;
-    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
 
     // margin-bottom: 20px;
 
@@ -39,14 +41,36 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-
-        min-height: 3em;
-        min-width: 3em;
+        width: 60px;
+        height: 60px;
         border: 1px solid hsl(0, 0%, 44%);
-        border-radius: 50%;
+        // border-radius: 50%;
 
+        font-size: 2rem;
+        line-height: 2rem;
+        text-transform: uppercase;
         user-select: none;
     }
+
+    .wrong {
+        background-color: $wrong-letter;
+        border: none;
+    }
+
+    .wrong-location {
+        background-color: $wrong-location-letter;
+        border: none;
+    }
+
+    .correct {
+        background-color: $correct-letter;
+        border: none
+    }
+
+    .unsubmitted {
+        border: 1px solid white;
+    }
+
 }
 .keyboard-area {
     display: grid;
@@ -54,8 +78,7 @@ body {
     grid-template-rows: repeat(3, 50px);
     gap: 5px;
 
-    width: 50%;
-
+    width: 500px;
     .btn {
         grid-column: span 2;
         background-color: $button-background;
@@ -71,5 +94,11 @@ body {
 
     .big {
         grid-column: span 3;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .keyboard-area {
+        width: 80%
     }
 }
