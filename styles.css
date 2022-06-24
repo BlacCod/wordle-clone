@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap");
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: white;
+}
+
+body {
+  background-color: #121213;
+  font-family: "Poppins", Roboto, sans-serif;
+  font-size: 20px;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.guess-area-wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 3em);
+  grid-template-rows: auto;
+  gap: 10px;
+}
+.guess-area-wrapper .tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3em;
+  min-width: 3em;
+  border: 1px solid hsl(0deg, 0%, 44%);
+  border-radius: 50%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.keyboard-area {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(3, 50px);
+  gap: 5px;
+  width: 50%;
+}
+.keyboard-area .btn {
+  grid-column: span 2;
+  background-color: hsl(210deg, 1%, 51%);
+  border-radius: 0.5em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  transition: 0.2s ease;
+}
+.keyboard-area .btn:hover {
+  background-color: #c1c2c2;
+}
+.keyboard-area .big {
+  grid-column: span 3;
+}/*# sourceMappingURL=styles.css.map */

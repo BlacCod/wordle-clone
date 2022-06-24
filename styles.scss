@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: white
+}
+
+$background: #121213;
+$button-background: hsl(210, 1%, 51%);
+$wrong-letter: #797c7f;
+$wrong-location-letter: #b59f3b;
+$correct-letter: #538d4e;
+
+body {
+    background-color: $background;
+    font-family: "Poppins", Roboto, sans-serif;
+    font-size: 20px;
+    color: white;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.guess-area-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 3em);
+    grid-template-rows: auto;
+    gap: 10px;
+
+    // margin-bottom: 20px;
+
+    .tile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        min-height: 3em;
+        min-width: 3em;
+        border: 1px solid hsl(0, 0%, 44%);
+        border-radius: 50%;
+
+        user-select: none;
+    }
+}
+.keyboard-area {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(3, 50px);
+    gap: 5px;
+
+    width: 50%;
+
+    .btn {
+        grid-column: span 2;
+        background-color: $button-background;
+        border-radius: .5em;
+        user-select: none;
+        transition: 0.2s ease;
+
+        &:hover {
+            background-color: lighten($button-background, 25%)
+        }
+    }
+
+
+    .big {
+        grid-column: span 3;
+    }
+}
