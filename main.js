@@ -1,20 +1,19 @@
 const guessArea = document.querySelector(".guess-area-wrapper")
 const button = document.querySelector("button")
-// const answer = fetch("https://random-word-api.herokuapp.com/word?length=5")
-// .then(res => res.json())
-// .then(res => {
-//      res
-// })
+let answer = "";
 
+function startGame() {
+    getWord()
+    startInteraction()
+}
 
-// function getAnswer() {
-//     let answer;
-//     const sth = fetch("https://random-word-api.herokuapp.com/word?length=5")
-//     .then(res => res.json())
-//     .then(res => {
-//         return res
-//     })
-// }
+startGame()
+async function getWord() {
+    const response = await fetch("https://random-word-api.herokuapp.com/word?length=5")
+    const data = await response.json()
+    answer = data[0]
+
+}
 
 
 function startInteraction() {
@@ -81,16 +80,25 @@ function submitGuess() {
     let submission = ""
     if (tileList.length < 5) return
     for (let i = 0; i < tileList.length; i++) {
-        submission = submission + tileList[i].dataset.inside
+        const yourLetter = tileList[i].dataset.inside;
+        submission += yourLetter
+        tileList[i].dataset.state = "incorrect"
+        for (let j = 0; j < answer.length; j++) {
+            if (yourLetter == answer.charAt(j)) {
+                tileList[i].dataset.state = "wrong-location"
+                if (i === j) {
+                    tileList[i].dataset.state = "correct";
+                    break;
+                }
+            }
+        }
     }
-    console.log(answer)
     if (submission === answer) {
-        console.log(submission)
-        console.log("Submission is right")
-    }
-    
-
+        console.log("You won")
+        endInteraciton()
+    }  
 }
+
 
 function deleteLastLetter() {
     const currentTile = guessArea.querySelector(":not([data-inside])")
@@ -101,5 +109,4 @@ function deleteLastLetter() {
     tileToDelete.removeAttribute("data-state")
 
 }
-startInteraction();
 

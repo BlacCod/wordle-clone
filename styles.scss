@@ -34,7 +34,7 @@ body {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(6, 1fr);
     gap: 5px;
-    
+
     // margin-bottom: 20px;
 
     .tile {
@@ -52,7 +52,7 @@ body {
         user-select: none;
     }
 
-    [data-state="wrong"] {
+    [data-state="incorrect"] {
         background-color: $wrong-letter;
         border: none;
     }

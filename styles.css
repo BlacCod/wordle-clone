@@ -42,7 +42,7 @@ body {
       -ms-user-select: none;
           user-select: none;
 }
-.guess-area-wrapper [data-state=wrong] {
+.guess-area-wrapper [data-state=incorrect] {
   background-color: #797c7f;
   border: none;
 }
