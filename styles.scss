@@ -34,7 +34,7 @@ body {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(6, 1fr);
     gap: 5px;
-
+    
     // margin-bottom: 20px;
 
     .tile {
@@ -52,22 +52,22 @@ body {
         user-select: none;
     }
 
-    .wrong {
+    [data-state="wrong"] {
         background-color: $wrong-letter;
         border: none;
     }
 
-    .wrong-location {
+    [data-state="wrong-location"] {
         background-color: $wrong-location-letter;
         border: none;
     }
 
-    .correct {
+    [data-state="correct"] {
         background-color: $correct-letter;
         border: none
     }
 
-    .unsubmitted {
+    [data-state="unsubmitted"] {
         border: 1px solid white;
     }
 
