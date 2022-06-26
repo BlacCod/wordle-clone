@@ -43,7 +43,7 @@ header ul a {
   padding: 10px;
 }
 header ul a:hover {
-  background-color: hsl(210deg, 1%, 51%);
+  background-color: #828282;
   border-radius: 0.25rem;
 }
 header ul .highlighted {
@@ -86,7 +86,7 @@ header ul .highlighted {
 }
 .keyboard-area .btn {
   grid-column: span 2;
-  background-color: hsl(210deg, 1%, 51%);
+  background-color: #828282;
   border-radius: 0.5em;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -95,14 +95,14 @@ header ul .highlighted {
   transition: 0.2s ease;
 }
 .keyboard-area .btn:hover {
-  background-color: #c1c2c2;
+  background-color: #c2c2c2;
 }
 .keyboard-area .big {
   grid-column: span 3;
 }
 
 [data-state=incorrect] {
-  background-color: #797c7f !important;
+  background-color: #3a3a3c !important;
   border: none !important;
 }
 
