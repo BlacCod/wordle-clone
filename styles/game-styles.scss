@@ -132,6 +132,53 @@ header {
     border: none !important;
 }
 
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    transition: all 0.5s ease;
+    display: none;
+    padding: 20px;
+    border-radius: .5rem;
+    background: black;
+
+    font-size: 1.5em;
+
+    &.show {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transform: translate(-50%, -50%);
+    }
+
+    button {
+        padding: 8px;
+        margin-right: 10px;
+        border-radius: .25rem;
+        transition: all 0.25s ease;
+        font-size: inherit;
+        &#restart {
+            box-shadow: 0 5px 0 darken($correct-letter, 20%);
+            background: $correct-letter
+        }
+
+        &#close {
+            background: lighten(red, 20%);
+            box-shadow: 0 5px 0 darken(red, 20%);
+        }
+
+        &:active {
+            transform: translateY(3px);
+            box-shadow: none !important;
+        }
+
+        &:hover {
+            filter: brightness(120%)
+        }
+    }
+}
+
 @media screen and (max-width: 600px) {
     .keyboard-area {
         width: 80%

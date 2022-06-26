@@ -2,6 +2,7 @@ const guessArea = document.querySelector(".guess-area-wrapper")
 const keyboard = document.querySelector(".keyboard-area")
 const root = document.documentElement;
 const LETTER_LENGTH = guessArea.dataset.letterLength;
+const popup = document.querySelector(".popup")
 root.style.setProperty("--letter-length", LETTER_LENGTH)
 let answer = "";
 
@@ -30,6 +31,7 @@ function endInteraciton() {
 
 function checkEndGame() {
     if (guessArea.querySelector(":not([data-inside])") === null) {
+        showPopup(false)
         console.log("You lost")
         endInteraciton()
     }
@@ -108,6 +110,7 @@ function submitGuess() {
     }
     if (submission === answer) {
         console.log("You won")
+        showPopup(true)
         endInteraciton()
     }  
 }
@@ -118,10 +121,28 @@ function deleteLastLetter() {
     if (currentSubmission.length == 0) return;
     const currentTile = guessArea.querySelector(":not([data-inside])")
     const tileToDelete = currentTile.previousElementSibling
-    if (tileToDelete == null) return
     tileToDelete.textContent = ""
     tileToDelete.removeAttribute("data-inside")
     tileToDelete.removeAttribute("data-state")
+}
 
+function showPopup(hasWon) {
+    const gameStatus = popup.querySelector("#game-status")
+    const placeToShowAnswer = popup.querySelector("#answer")
+    const restartBtn = popup.querySelector("#restart")
+    const closePopupBtn = popup.querySelector("#close")
+
+    gameStatus.textContent = hasWon ? "You won" : "You lost"
+    placeToShowAnswer.textContent = `The answer is ${answer.toUpperCase()}`
+    popup.classList.add("show")
+
+    closePopupBtn.onclick = () => {
+        popup.classList.remove("show")
+    }
+
+    restartBtn.onclick = () => {
+        //reload website
+        location.reload()
+    }
 }
 

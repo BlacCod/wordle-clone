@@ -116,6 +116,47 @@ header ul .highlighted {
   border: none !important;
 }
 
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: all 0.5s ease;
+  display: none;
+  padding: 20px;
+  border-radius: 0.5rem;
+  background: black;
+  font-size: 1.5em;
+}
+.popup.show {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform: translate(-50%, -50%);
+}
+.popup button {
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 0.25rem;
+  transition: all 0.25s ease;
+  font-size: inherit;
+}
+.popup button#restart {
+  box-shadow: 0 5px 0 #2c4b2a;
+  background: #538d4e;
+}
+.popup button#close {
+  background: #ff6666;
+  box-shadow: 0 5px 0 #990000;
+}
+.popup button:active {
+  transform: translateY(3px);
+  box-shadow: none !important;
+}
+.popup button:hover {
+  filter: brightness(120%);
+}
+
 @media screen and (max-width: 600px) {
   .keyboard-area {
     width: 80%;
