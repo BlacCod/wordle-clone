@@ -52,21 +52,6 @@ body {
         user-select: none;
     }
 
-    [data-state="incorrect"] {
-        background-color: $wrong-letter;
-        border: none;
-    }
-
-    [data-state="wrong-location"] {
-        background-color: $wrong-location-letter;
-        border: none;
-    }
-
-    [data-state="correct"] {
-        background-color: $correct-letter;
-        border: none
-    }
-
     [data-state="unsubmitted"] {
         border: 1px solid white;
     }
@@ -95,6 +80,21 @@ body {
     .big {
         grid-column: span 3;
     }
+}
+
+[data-state="incorrect"] {
+    background-color: $wrong-letter !important;
+    border: none !important;
+}
+
+[data-state="wrong-location"] {
+    background-color: $wrong-location-letter !important;
+    border: none !important;
+}
+
+[data-state="correct"] {
+    background-color: $correct-letter !important;
+    border: none !important;
 }
 
 @media screen and (max-width: 600px) {

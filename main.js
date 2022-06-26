@@ -1,5 +1,5 @@
 const guessArea = document.querySelector(".guess-area-wrapper")
-const button = document.querySelector("button")
+const keyboard = document.querySelector(".keyboard-area")
 let answer = "";
 
 function startGame() {
@@ -83,11 +83,14 @@ function submitGuess() {
         const yourLetter = tileList[i].dataset.inside;
         submission += yourLetter
         tileList[i].dataset.state = "incorrect"
+        keyboard.querySelector(`[data-key="${yourLetter.toUpperCase()}"]`).dataset.state = "incorrect"
         for (let j = 0; j < answer.length; j++) {
             if (yourLetter == answer.charAt(j)) {
                 tileList[i].dataset.state = "wrong-location"
+                keyboard.querySelector(`[data-key="${yourLetter.toUpperCase()}"]`).dataset.state = "wrong-location"
                 if (i === j) {
                     tileList[i].dataset.state = "correct";
+                    keyboard.querySelector(`[data-key="${yourLetter.toUpperCase()}"]`).dataset.state = "correct"
                     break;
                 }
             }
