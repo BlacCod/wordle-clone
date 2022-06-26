@@ -26,7 +26,14 @@ function endInteraciton() {
     const keyPressEvent = window.removeEventListener("keyup", handlePressKey)
 }
 
+function checkEndGame() {
+    if (guessArea.querySelector(":not([data-inside])") === null) {
+        console.log("You lost")
+        endInteraciton()
+    }
+}
 function handleClickButton(event) {
+    checkEndGame()
     if (event.target.matches("[data-key]")) {
         addLetter(event.target.dataset.key)
         return
@@ -45,6 +52,7 @@ function handleClickButton(event) {
 }
 
 function handlePressKey(event) {
+    checkEndGame()
     if (event.code == "Enter") {
         submitGuess();
         return;
