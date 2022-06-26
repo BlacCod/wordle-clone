@@ -114,6 +114,8 @@ function submitGuess() {
 
 
 function deleteLastLetter() {
+    const currentSubmission = getUnsubmittedTiles();
+    if (currentSubmission.length == 0) return;
     const currentTile = guessArea.querySelector(":not([data-inside])")
     const tileToDelete = currentTile.previousElementSibling
     if (tileToDelete == null) return
