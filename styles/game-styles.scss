@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap');
+@import 'colors';
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -8,11 +9,7 @@
     color: white
 }
 
-$background: #121213;
-$button-background: hsl(210, 1%, 51%);
-$wrong-letter: #797c7f;
-$wrong-location-letter: #b59f3b;
-$correct-letter: #538d4e;
+
 $letter-length: var(--letter-length);
 
 html {
@@ -42,7 +39,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    
     ul {
         display: flex;
         justify-content: center;
