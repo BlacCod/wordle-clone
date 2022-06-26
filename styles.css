@@ -11,6 +11,10 @@ html {
   font-size: 16px;
 }
 
+:root {
+  --letter-length: 5;
+}
+
 body {
   background-color: #121213;
   font-family: "Poppins", Roboto, sans-serif;
@@ -21,9 +25,36 @@ body {
   align-items: center;
 }
 
+header {
+  min-width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+}
+header ul a {
+  text-decoration: none;
+  padding: 10px;
+}
+header ul a:hover {
+  background-color: hsl(210deg, 1%, 51%);
+  border-radius: 0.25rem;
+}
+header ul .highlighted {
+  background-color: white !important;
+  border-radius: 0.25rem;
+  color: black;
+}
+
 .guess-area-wrapper {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(var(--letter-length), 1fr);
   grid-template-rows: repeat(6, 1fr);
   gap: 5px;
 }
@@ -88,5 +119,9 @@ body {
 @media screen and (max-width: 600px) {
   .keyboard-area {
     width: 80%;
+  }
+
+  header {
+    flex-direction: column;
   }
 }/*# sourceMappingURL=styles.css.map */
