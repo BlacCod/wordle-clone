@@ -13,6 +13,8 @@ $button-background: hsl(210, 1%, 51%);
 $wrong-letter: #797c7f;
 $wrong-location-letter: #b59f3b;
 $correct-letter: #538d4e;
+$letter-length: var(--letter-length);
+
 html {
     font-size: 16px;
 }
@@ -67,7 +69,7 @@ header {
 
 .guess-area-wrapper {
     display: grid;
-    grid-template-columns: repeat(var(--letter-length), 1fr);
+    grid-template-columns: repeat($letter-length, 1fr);
     grid-template-rows: repeat(6, 1fr);
     gap: 5px;
 

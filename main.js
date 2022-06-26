@@ -1,5 +1,8 @@
 const guessArea = document.querySelector(".guess-area-wrapper")
 const keyboard = document.querySelector(".keyboard-area")
+const root = document.documentElement;
+const LETTER_LENGTH = guessArea.dataset.letterLength;
+root.style.setProperty("--letter-length", LETTER_LENGTH)
 let answer = "";
 
 function startGame() {
@@ -9,7 +12,7 @@ function startGame() {
 
 startGame()
 async function getWord() {
-    const response = await fetch("https://random-word-api.herokuapp.com/word?length=5")
+    const response = await fetch(`https://random-word-api.herokuapp.com/word?length=${LETTER_LENGTH}`)
     const data = await response.json()
     answer = data[0]
 }
@@ -70,7 +73,7 @@ function handlePressKey(event) {
 function addLetter(key) {
     // Check if current attempt is already 5 letters or not
     const unsubmittedTileList = getUnsubmittedTiles()
-    if (unsubmittedTileList.length >= 5) return
+    if (unsubmittedTileList.length >= LETTER_LENGTH) return
     
     const currentTile = guessArea.querySelector(":not([data-inside])")
     currentTile.textContent = key
@@ -85,7 +88,7 @@ function getUnsubmittedTiles() {
 function submitGuess() {
     const tileList = getUnsubmittedTiles()
     let submission = ""
-    if (tileList.length < 5) return
+    if (tileList.length < LETTER_LENGTH) return
     for (let i = 0; i < tileList.length; i++) {
         const yourLetter = tileList[i].dataset.inside;
         submission += yourLetter
