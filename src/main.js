@@ -13,7 +13,7 @@ function startGame() {
 
 startGame()
 async function getWord() {
-    const response = await fetch(`https://random-word-api.herokuapp.com/word?length=${LETTER_LENGTH}`)
+    const response = await fetch(`https://random-word-api2.herokuapp.com/word?length=${LETTER_LENGTH}`)
     const data = await response.json()
     answer = data[0]
 }
