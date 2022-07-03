@@ -7,3 +7,5 @@ A Wordle Clone - ***with additional 4-letters and 6-letters game mode!***
 Made with HTML, CSS/SCSS and JavaScript
 
 The target word is chosen using [Random Word API](https://random-word-api.herokuapp.com/home)
+
+**Live Demo:** [Wordle (blaccod.github.io)](https://blaccod.github.io/wordle-clone/)
